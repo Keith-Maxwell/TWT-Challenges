@@ -26,6 +26,8 @@ def erange(*args):
     elif len(args) == 3:  # 3 arguments, start, stop, step
         if (args[1] >= args[0] and args[2] < 0) or (args[1] <= args[0] and args[2] > 0):
             return []
+        if args[3] == 0:
+            raise ValueError("range() arg 3 must not be 0")
         i, lst = args[0], []
         if args[2] < 0:  # negative step
             while i > args[1]:
