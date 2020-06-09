@@ -1,7 +1,10 @@
+import random
+
+
 def erange(*args):
-    ''' recreation of the range() function
-        erange(stop) -> from 0 to stop value with step 1
-        erange(start, stop) -> from start to stop, with step 1
+    ''' recreation of the range() function\n
+        erange(stop) -> from 0 to stop value with step 1\n
+        erange(start, stop) -> from start to stop, with step 1\n
         erange(start, stop, step) -> from start to stop, with given step'''
     for arg in args:  # verify that every argument is an integer
         if type(arg) != int:
@@ -26,8 +29,6 @@ def erange(*args):
     elif len(args) == 3:  # 3 arguments, start, stop, step
         if (args[1] >= args[0] and args[2] < 0) or (args[1] <= args[0] and args[2] > 0):
             return []
-        if args[3] == 0:
-            raise ValueError("range() arg 3 must not be 0")
         i, lst = args[0], []
         if args[2] < 0:  # negative step
             while i > args[1]:
@@ -37,6 +38,8 @@ def erange(*args):
             while i < args[1]:
                 lst.append(i)
                 i += args[2]
+        elif args[2] == 0:
+            raise ValueError("range() arg 3 must not be 0")
 
     else:  # no arguments or more than 3 arguments raises an error
         raise SyntaxError("one, two or three arguments supported, no more, no less")
@@ -44,16 +47,18 @@ def erange(*args):
     return lst
 
 
-def numerate(iterable):
+def numerate(iterable, start=0):
     ''' recreation of the enumerate() function'''
-    index, lst = 0, []
+    if type(start) != int:
+        raise TypeError('start should be of type int')
+    index = 0 + start
     for element in iterable:
-        lst.append((index, element))
+        yield(index, element)
         index += 1
-    return lst
 
 
 # --------------------------------TESTS---------------------------------------
+# Test the erange() function
 psp = 0
 psn = 0
 for x in range(21):
@@ -72,3 +77,21 @@ if psn == 0:
     print("Success ! erange() is the same as range()")
 else:
     print("Failed ! Try again...")
+
+# test the numerate function
+choices = (True, False)
+for _ in range(1000):
+    iter = list(range(random.randint(1, 50), random.randint(50, 100)))
+    choice = random.choice(choices)
+    if choice:
+        test = list(numerate(iter.copy()))
+        valid = list(enumerate(iter))
+    else:
+        strt = random.randint(-100, 100)
+        test = list(numerate(iter.copy(), start=strt))
+        valid = list(enumerate(iter, start=strt))
+    if test != valid:
+        print('failed:')
+        print(f'Yours: {test}')
+        print(f'Correct: {valid}')
+# if nothing prints in the console, then everything works fine
