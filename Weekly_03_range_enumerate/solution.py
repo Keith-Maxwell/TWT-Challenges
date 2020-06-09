@@ -15,7 +15,7 @@ def erange(*args):
             return []
         i, lst = 0, []
         while i != args[0]:
-            lst.append(i)
+            yield i
             i += 1
 
     elif len(args) == 2:  # two arguments, start and stop
@@ -23,7 +23,7 @@ def erange(*args):
             return []
         i, lst = args[0], []
         while i < args[1]:
-            lst.append(i)
+            yield i
             i += 1
 
     elif len(args) == 3:  # 3 arguments, start, stop, step
@@ -32,19 +32,17 @@ def erange(*args):
         i, lst = args[0], []
         if args[2] < 0:  # negative step
             while i > args[1]:
-                lst.append(i)
+                yield i
                 i += args[2]
         elif args[2] > 0:  # positive step
             while i < args[1]:
-                lst.append(i)
+                yield i
                 i += args[2]
         elif args[2] == 0:
-            raise ValueError("range() arg 3 must not be 0")
+            raise ValueError("erange() arg 3 must not be 0")
 
     else:  # no arguments or more than 3 arguments raises an error
         raise SyntaxError("one, two or three arguments supported, no more, no less")
-
-    return lst
 
 
 def numerate(iterable, start=0):
@@ -66,11 +64,12 @@ for x in range(21):
         for z in range(21):
             if z - 10 != 0:
                 try:
-                    if erange(x-10, y-10, z-10) == list(range(x-10, y-10, z-10)):
+                    if list(erange(x-10, y-10, z-10)) == list(range(x-10, y-10, z-10)):
                         psp += 1
                     else:
                         psn += 1
                 except:
+                    psn += 1
                     print(x-10, y-10, z-10)
 print(f'successes : {psp}, failures : {psn}')
 if psn == 0:
