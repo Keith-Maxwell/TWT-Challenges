@@ -1,6 +1,6 @@
 # **Zip/Postal code validating challenge**
 
-https://discordapp.com/channels/501090983539245061/680851798340272141/717049215452446802
+[Discord message for this Challenge](https://discordapp.com/channels/501090983539245061/680851798340272141/717049215452446802)
 
 (please make sure to read everything so you know exactly what is expected, feel free to ask any questions you have)
 

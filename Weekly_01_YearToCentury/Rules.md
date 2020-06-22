@@ -1,6 +1,6 @@
 # Year to century converter challenge
 
-https://discordapp.com/channels/501090983539245061/680851798340272141/714537908777779252
+[Discord message for this Challenge](https://discordapp.com/channels/501090983539245061/680851798340272141/714537908777779252)
 
 Given a year, return the century it is in. The first century spans from the year 1 up to and including the year 100, the second - from the year 101 up to and including the year 200, etc. **No libraries/imports allowed**
 

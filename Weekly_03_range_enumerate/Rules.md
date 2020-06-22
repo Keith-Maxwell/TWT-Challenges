@@ -1,6 +1,6 @@
 # Generator replicas challenge
 
-https://discordapp.com/channels/501090983539245061/680851798340272141/719570962802016276
+[Discord message for this Challenge](https://discordapp.com/channels/501090983539245061/680851798340272141/719570962802016276)
 
 ## Task
 

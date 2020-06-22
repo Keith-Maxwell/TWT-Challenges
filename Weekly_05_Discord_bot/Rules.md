@@ -1,5 +1,7 @@
 # Discord Bot Challenge
 
+Corresponding [Discord message](https://discordapp.com/channels/501090983539245061/680851798340272141/724653570410020914)
+
 You are nervous stepping into our new Tech With Tim Building as you are applying for the interview
 you head to the waiting room getting more and more nervous you hear your name being called out so you head into the room just to be met with our bot expert face to face (aka sylte).
 He gave you one task and a week to complete it.
