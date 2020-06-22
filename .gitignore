@@ -1,4 +1,7 @@
-
+venv/
 .vscode/
 
-Monthly_01_Data_Smoothing/__pycache__/
+__pycache__/
+
+#discord bot
+mytoken.py
