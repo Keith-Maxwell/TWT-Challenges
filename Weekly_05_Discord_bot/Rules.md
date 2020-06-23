@@ -3,7 +3,7 @@
 Corresponding [Discord message](https://discordapp.com/channels/501090983539245061/680851798340272141/724653570410020914)
 
 You are nervous stepping into our new Tech With Tim Building as you are applying for the interview
-you head to the waiting room getting more and more nervous you hear your name being called out so you head into the room just to be met with our bot expert face to face (aka sylte).
+you head to the waiting room getting more and more nervous you hear your name being called out so you head into the room just to be met with our bot expert face to face (aka Sylte).
 He gave you one task and a week to complete it.
 
 ## Task
@@ -25,7 +25,7 @@ class FileFilter(commands.Cog):
         ... # Add your code here.
 ```
 
-Using this format, check if the message has any attachments, if the attachments file extension is not in our list of valid extension delete the message and let the user know you cant post files of that filetype.
+Using this format, check if the message has any attachments, if the attachments file extension is not in our list of valid extension delete the message and let the user know you cant post files of that filetype.  **Ignore any messages from staff and bots**
 (The real challenge here is reading documentation for most people)
 
 A list of allowed file extensions is available as `self.accepted_extentions` as seen in the code
@@ -36,7 +36,14 @@ Submit your solution using the format described above :arrow_up:
 
 ## Grading
 
-Idk man Sylte is grading it so you better live up to his standards.
+Your code needs to have or needs to account for:
+
+```
+- Functionality
+- Order of code
+- Readability 
+```
+
 This is something that will be added to our TWT bot so make sure it works as intended :wink:
 
 ## P.S.
