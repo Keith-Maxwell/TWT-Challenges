@@ -12,7 +12,7 @@ class FileFilter(commands.Cog):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        self.accepted_extentions: List[str] = ['png']
+        self.accepted_extentions: List[str] = []
 
     @commands.Cog.listener()
     async def on_message(self, message: discord.Message):
@@ -23,8 +23,8 @@ class FileFilter(commands.Cog):
         if message.author.id not in [511334601977888798, 541272748161499147, 511332506780434438, 580911082290282506]:
             # navigate trough every attachment in the message
             for attachment in message.attachments:
-                # delete the message if any of the attachment's extension is not inside the authorized list
-                if any([not attachment.filename.endswith(extension.lower()) for extension in self.accepted_extentions]):
+                # delete the message if any of the attachment's extension is not inside the authorized list, or if there are no accepted extensions (list is empty)
+                if any([not attachment.filename.endswith(extension.lower()) for extension in self.accepted_extentions]) or self.accepted_extentions == []:
                     await message.channel.send("You can't upload this file type !", delete_after=10)
                     await message.delete()
                     break
