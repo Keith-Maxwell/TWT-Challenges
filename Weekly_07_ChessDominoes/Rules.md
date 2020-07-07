@@ -9,7 +9,7 @@ It can be fun to experiment using something in a way we don't usually use. Here 
 Given that 0's indicate open spots and 1's indicate unavailable or filled spots. Return True if a chessboard can be completely filled up with dominos, return False otherwise.
 
 - the chessboard can be of any dimensions with all rows being the same length and all columns being the same length
-- there will only ever be two spots filled up
+- there will a random amount of spots filled up
 - the dominos always take up two spots/squares either vertically or horizontally
 
 ### example
