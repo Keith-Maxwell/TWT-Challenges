@@ -2,7 +2,13 @@ from random import randint
 from timeit import timeit
 
 
-def solution(value1, weight1, value2, weight2, maxW):
+def checker(value1, weight1, value2, weight2, maxW):  # the official solution, clever and beautiful
+    return max(value1*(weight1 <= maxW),
+               value2*(weight2 <= maxW),
+               (value1+value2)*(weight1+weight2 <= maxW))
+
+
+def solution(value1, weight1, value2, weight2, maxW):  # My solution, ugly and did not work
     if weight1 + weight2 <= maxW:
         return value1 + value2
     elif weight1 <= maxW and weight2 <= maxW:
@@ -21,26 +27,6 @@ value2 = 6
 weight2 = 4
 maxW = 8
 print(solution(value1, weight1, value2, weight2, maxW))  # 10
-value1 = 10
-weight1 = 5
-value2 = 6
-weight2 = 4
-maxW = 9
-print(solution(value1, weight1, value2, weight2, maxW))  # 16
-value1 = 10
-weight1 = 5
-value2 = 6
-weight2 = 4
-maxW = 3
-print(solution(value1, weight1, value2, weight2, maxW))  # 0
-value1 = 10
-weight1 = 5
-value2 = 6
-weight2 = 8
-maxW = 7
-print(solution(value1, weight1, value2, weight2, maxW))  # 10
-
-# efficiency tester -----------------------------
 
 
 def gen():
@@ -48,7 +34,14 @@ def gen():
     return s(), s(), s(), s(), s()
 
 
-def tester(): solution(*gen())
+def batch_tester():
+    n_test = 2000
+    passed = 0
+    for _ in range(n_test):
+        if solution(*gen()) == checker(*gen()):
+            passed += 1
+    print(f'passed cases : {passed}')
+    print(f'failed cases: {n_test - passed}')
 
 
-print(timeit(tester))
+batch_tester()
